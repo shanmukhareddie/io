@@ -146,41 +146,11 @@ a,button,[role="button"]{transition:color var(--transition-interactive),backgrou
   text-decoration:none;border:1px solid oklch(from var(--color-text) l c h / 0.18)}
 .btn-ghost:hover{color:var(--color-text);border-color:oklch(from var(--color-text) l c h / 0.35);
   background:oklch(from var(--color-text) l c h / 0.04)}
-.hero-avatar-wrap{
-  display:flex;flex-direction:column;align-items:center;gap:var(--space-4)}
-.hero-avatar{
-  width:200px;height:200px;
-  border-radius:var(--radius-full);
+.hero-avatar-wrap{display:flex;flex-direction:column;align-items:center;gap:var(--space-4)}
+.hero-avatar{width:200px;height:200px;border-radius:var(--radius-full);
   border:3px solid oklch(from var(--color-primary) l c h / 0.25);
   box-shadow:0 0 0 6px oklch(from var(--color-primary) l c h / 0.08),var(--shadow-md);
-  object-fit:cover;object-position:center top;
-  background:var(--color-surface-offset)}
-.hero-avatar-name{font-family:var(--font-display);font-size:var(--text-lg);
-  color:var(--color-text);text-align:center;line-height:1.3}
-.hero-avatar-title{font-size:var(--text-sm);color:var(--color-text-muted);
-  text-align:center;letter-spacing:0.02em}
-.hero-avatar-wrap{
-  display:flex;flex-direction:column;align-items:center;gap:var(--space-4)}
-.hero-avatar{
-  width:200px;height:200px;
-  border-radius:var(--radius-full);
-  border:3px solid oklch(from var(--color-primary) l c h / 0.25);
-  box-shadow:0 0 0 6px oklch(from var(--color-primary) l c h / 0.08),var(--shadow-md);
-  object-fit:cover;object-position:center top;
-  background:var(--color-surface-offset)}
-.hero-avatar-name{font-family:var(--font-display);font-size:var(--text-lg);
-  color:var(--color-text);text-align:center;line-height:1.3}
-.hero-avatar-title{font-size:var(--text-sm);color:var(--color-text-muted);
-  text-align:center;letter-spacing:0.02em}
-.hero-avatar-wrap{
-  display:flex;flex-direction:column;align-items:center;gap:var(--space-4)}
-.hero-avatar{
-  width:200px;height:200px;
-  border-radius:var(--radius-full);
-  border:3px solid oklch(from var(--color-primary) l c h / 0.25);
-  box-shadow:0 0 0 6px oklch(from var(--color-primary) l c h / 0.08),var(--shadow-md);
-  object-fit:cover;object-position:center top;
-  background:var(--color-surface-offset)}
+  object-fit:cover;object-position:center top;background:var(--color-surface-offset)}
 .hero-avatar-name{font-family:var(--font-display);font-size:var(--text-lg);
   color:var(--color-text);text-align:center;line-height:1.3}
 .hero-avatar-title{font-size:var(--text-sm);color:var(--color-text-muted);
@@ -215,7 +185,6 @@ section{padding-block:clamp(var(--space-12),6vw,var(--space-20))}
 @media(min-width:640px){.projects-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.projects-grid{grid-template-columns:repeat(3,1fr)}}
 
-/* Featured project spans full width */
 .project-card{
   background:var(--color-surface);border-radius:var(--radius-xl);
   border:1px solid oklch(from var(--color-text) l c h / 0.08);
@@ -243,14 +212,6 @@ section{padding-block:clamp(var(--space-12),6vw,var(--space-20))}
   background:var(--color-primary-highlight);display:flex;align-items:center;
   justify-content:center;flex-shrink:0}
 .project-icon svg{color:var(--color-primary)}
-.project-links{display:flex;gap:var(--space-2)}
-.project-link{display:flex;align-items:center;justify-content:center;
-  width:32px;height:32px;border-radius:var(--radius-md);
-  color:var(--color-text-muted);border:1px solid oklch(from var(--color-text) l c h / 0.14);
-  text-decoration:none;background:var(--color-bg)}
-.project-link:hover{color:var(--color-primary);
-  border-color:oklch(from var(--color-primary) l c h / 0.4);
-  background:var(--color-primary-highlight)}
 .project-year{font-size:var(--text-xs);color:var(--color-text-faint);
   font-weight:500;letter-spacing:0.04em;margin-bottom:var(--space-1)}
 .project-name{font-family:var(--font-display);font-size:var(--text-lg);
@@ -290,8 +251,14 @@ section{padding-block:clamp(var(--space-12),6vw,var(--space-20))}
 .skill-bar{height:100%;border-radius:var(--radius-full);background:var(--color-primary);
   transition:width 1.2s cubic-bezier(0.16,1,0.3,1);width:0}
 
-/* ── Experience ── */
-.exp-timeline{margin-top:var(--space-10);display:flex;flex-direction:column;gap:var(--space-6)}
+/* ── Experience + Education stacked ── */
+.exp-edu-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--space-12);
+  margin-top:var(--space-10)}
+
+.exp-timeline{display:flex;flex-direction:column;gap:var(--space-6)}
 .exp-item{display:grid;grid-template-columns:auto 1fr;gap:var(--space-5)}
 .exp-line{display:flex;flex-direction:column;align-items:center;gap:0}
 .exp-dot{width:12px;height:12px;border-radius:var(--radius-full);
@@ -315,11 +282,10 @@ section{padding-block:clamp(var(--space-12),6vw,var(--space-20))}
   border:1px solid var(--color-primary)}
 
 /* ── Education ── */
-.edu-grid{margin-top:var(--space-10);display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(min(400px,100%),1fr));gap:var(--space-6)}
+.edu-stack{display:flex;flex-direction:column;gap:var(--space-6)}
 .edu-card{background:var(--color-surface);border-radius:var(--radius-xl);
   padding:var(--space-6);border:1px solid oklch(from var(--color-text) l c h / 0.08);
-  box-shadow:var(--shadow-sm);width:fit-content}
+  box-shadow:var(--shadow-sm)}
 .edu-period{font-size:var(--text-xs);color:var(--color-primary);font-weight:600;
   letter-spacing:0.06em;text-transform:uppercase;margin-bottom:var(--space-2)}
 .edu-degree{font-family:var(--font-display);font-size:var(--text-xl);
@@ -377,7 +343,6 @@ footer{padding:var(--space-6);text-align:center;
 </head>
 <body>
 
-<!-- Skip link -->
 <a class="sr-only" href="#main">Skip to content</a>
 
 <!-- ── Nav ── -->
@@ -385,9 +350,7 @@ footer{padding:var(--space-6);text-align:center;
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a class="nav-logo" href="#" aria-label="Shanmukha Reddy Gangula — Home">
-        <!-- Inline SVG logo: SRG monogram -->
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
           <rect width="32" height="32" rx="8" fill="var(--color-primary)"/>
           <text x="16" y="22" font-family="Georgia,serif" font-size="14" font-weight="700"
             fill="var(--color-text-inverse)" text-anchor="middle" letter-spacing="-1">SG</text>
@@ -399,6 +362,7 @@ footer{padding:var(--space-6);text-align:center;
           <a class="nav-link" href="#projects">Projects</a>
           <a class="nav-link" href="#skills">Skills</a>
           <a class="nav-link" href="#experience">Experience</a>
+          <a class="nav-link" href="#education">Education</a>
           <a class="nav-link" href="#contact">Contact</a>
         </div>
         <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
@@ -412,7 +376,6 @@ footer{padding:var(--space-6);text-align:center;
   </nav>
 </header>
 
-<!-- ── Main ── -->
 <main id="main">
 
   <!-- ── Hero ── -->
@@ -460,7 +423,6 @@ footer{padding:var(--space-6);text-align:center;
           <div class="hero-stat-num">5</div>
           <div class="hero-stat-label">GitHub Repos</div>
         </div>
-
       </div>
     </div>
   </section>
@@ -480,8 +442,10 @@ footer{padding:var(--space-6);text-align:center;
 
       <div class="projects-grid">
 
-        <!-- ① Supply Chain Intelligence Platform — FEATURED (CV priority 1) -->
-        <article class="project-card featured reveal" aria-label="Supply Chain Intelligence Platform" data-href="https://github.com/shanmukhareddie/supply-chain-intelligence" onclick="if(!event.target.closest('a,button')){window.open(this.dataset.href,'_blank','noopener,noreferrer')}">
+        <!-- ① Supply Chain Intelligence Platform — FEATURED -->
+        <article class="project-card featured reveal" aria-label="Supply Chain Intelligence Platform"
+          data-href="https://shanmukhareddie-supply-chain.streamlit.app/"
+          onclick="if(!event.target.closest('a,button')){window.open(this.dataset.href,'_blank','noopener,noreferrer')}">
           <div class="project-body">
             <div class="project-top">
               <div class="project-icon" aria-hidden="true">
@@ -490,31 +454,6 @@ footer{padding:var(--space-6);text-align:center;
                   <path d="M3 3h6l3 6-3 3h-3M21 3h-6l-3 6 3 3h3"/>
                   <path d="M12 12v9M8 21h8"/>
                 </svg>
-              </div>
-              <div class="project-links">
-                <a class="project-link"
-                  href="https://github.com/shanmukhareddie/supply-chain-intelligence"
-                  target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57
-                    0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695
-                    -.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99
-                    .105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225
-                    -.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405
-                    c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605
-                    -2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69
-                    .825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                  </svg>
-                </a>
-                <a class="project-link"
-                  href="https://shanmukhareddie-supply-chain.streamlit.app/"
-                  target="_blank" rel="noopener noreferrer" aria-label="Live demo">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                    <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-                  </svg>
-                </a>
               </div>
             </div>
             <div>
@@ -536,6 +475,12 @@ footer{padding:var(--space-6);text-align:center;
               <span class="tag">Streamlit</span><span class="tag">GitHub Actions</span>
               <span class="tag">CI/CD</span>
             </div>
+            <a href="https://shanmukhareddie-supply-chain.streamlit.app/" target="_blank" rel="noopener noreferrer"
+              style="display:inline-flex;align-items:center;gap:6px;margin-top:4px;padding:8px 18px;
+              background:var(--color-primary);color:var(--color-text-inverse);border-radius:9999px;
+              font-size:0.8rem;font-weight:600;text-decoration:none;">
+              🚀 Open Live App
+            </a>
           </div>
           <div class="project-highlights" aria-label="Key achievements">
             <div class="project-highlight-item">
@@ -561,16 +506,12 @@ footer{padding:var(--space-6);text-align:center;
               </p>
             </div>
           </div>
-          <a href="https://shanmukhareddie-supply-chain.streamlit.app/" target="_blank" rel="noopener noreferrer"
-            style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:8px 18px;
-            background:var(--color-primary);color:var(--color-text-inverse);border-radius:9999px;
-            font-size:0.8rem;font-weight:600;text-decoration:none;">
-            🚀 Open Live App
-          </a>
         </article>
 
-        <!-- ② AI Code Review Agent (CV priority 2) -->
-        <article class="project-card reveal reveal-delay-1" aria-label="AI Code Review Agent" data-href="https://github.com/shanmukhareddie/AI_code_review_agent" onclick="if(!event.target.closest('a,button')){window.open(this.dataset.href,'_blank','noopener,noreferrer')}">
+        <!-- ② AI Code Review Agent -->
+        <article class="project-card reveal reveal-delay-1" aria-label="AI Code Review Agent"
+          data-href="https://ai-code-review-agents.streamlit.app/"
+          onclick="if(!event.target.closest('a,button')){window.open(this.dataset.href,'_blank','noopener,noreferrer')}">
           <div class="project-top">
             <div class="project-icon" style="background:oklch(from var(--color-purple) l c h / 0.15)" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
@@ -578,31 +519,6 @@ footer{padding:var(--space-6);text-align:center;
                 <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
                 <path d="M12 2v20" opacity=".4"/>
               </svg>
-            </div>
-            <div class="project-links">
-              <a class="project-link"
-                href="https://github.com/shanmukhareddie/AI_code_review_agent"
-                target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57
-                  0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695
-                  -.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99
-                  .105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225
-                  -.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405
-                  c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605
-                  -2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69
-                  .825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-              </a>
-              <a class="project-link"
-                href="https://ai-code-review-agents.streamlit.app/"
-                target="_blank" rel="noopener noreferrer" aria-label="Live demo">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
-              </a>
             </div>
           </div>
           <div class="live-badge">
@@ -621,15 +537,17 @@ footer{padding:var(--space-6);text-align:center;
             <span class="tag">Streamlit</span><span class="tag">PR Integration</span>
           </div>
           <a href="https://ai-code-review-agents.streamlit.app/" target="_blank" rel="noopener noreferrer"
-            style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:8px 18px;
+            style="display:inline-flex;align-items:center;gap:6px;margin-top:auto;padding:8px 18px;
             background:var(--color-purple);color:#fff;border-radius:9999px;
             font-size:0.8rem;font-weight:600;text-decoration:none;">
             🚀 Open Live App
           </a>
         </article>
 
-        <!-- ③ AI-Based CCTV Monitoring (CV priority 3) -->
-        <article class="project-card reveal reveal-delay-2" aria-label="AI-Based CCTV Monitoring System" data-href="https://github.com/shanmukhareddie" onclick="if(!event.target.closest('a,button')){window.open(this.dataset.href,'_blank','noopener,noreferrer')}">
+        <!-- ③ AI-Based CCTV Monitoring -->
+        <article class="project-card reveal reveal-delay-2" aria-label="AI-Based CCTV Monitoring System"
+          data-href="https://github.com/shanmukhareddie"
+          onclick="if(!event.target.closest('a,button')){window.open(this.dataset.href,'_blank','noopener,noreferrer')}">
           <div class="project-top">
             <div class="project-icon" style="background:oklch(from var(--color-gold) l c h / 0.15)" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
@@ -637,9 +555,6 @@ footer{padding:var(--space-6);text-align:center;
                 <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
                 <circle cx="12" cy="13" r="4"/>
               </svg>
-            </div>
-            <div class="project-links">
-              <!-- GitHub private / no link available -->
             </div>
           </div>
           <div class="project-year">2024</div>
@@ -656,8 +571,10 @@ footer{padding:var(--space-6);text-align:center;
           </div>
         </article>
 
-        <!-- ④ KNN / Dimensionality Reduction (GitHub repo) -->
-        <article class="project-card reveal reveal-delay-3" aria-label="KNN Dimensionality Reduction" data-href="https://github.com/shanmukhareddie/knn-dimensionality-reduction" onclick="if(!event.target.closest('a,button')){window.open(this.dataset.href,'_blank','noopener,noreferrer')}">
+        <!-- ④ KNN / Dimensionality Reduction -->
+        <article class="project-card reveal reveal-delay-3" aria-label="KNN Dimensionality Reduction"
+          data-href="https://github.com/shanmukhareddie/knn-dimensionality-reduction"
+          onclick="if(!event.target.closest('a,button')){window.open(this.dataset.href,'_blank','noopener,noreferrer')}">
           <div class="project-top">
             <div class="project-icon" style="background:oklch(from var(--color-blue) l c h / 0.15)" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
@@ -667,22 +584,6 @@ footer{padding:var(--space-6);text-align:center;
                 <circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/>
                 <path d="M6 6l4.5 4.5M14 6l-2 4M6 18l4.5-4.5M18 6l-4.5 4.5"/>
               </svg>
-            </div>
-            <div class="project-links">
-              <a class="project-link"
-                href="https://github.com/shanmukhareddie/knn-dimensionality-reduction"
-                target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57
-                  0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695
-                  -.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99
-                  .105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225
-                  -.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405
-                  c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605
-                  -2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69
-                  .825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-              </a>
             </div>
           </div>
           <div class="project-year">2025</div>
@@ -698,8 +599,10 @@ footer{padding:var(--space-6);text-align:center;
           </div>
         </article>
 
-        <!-- ⑤ Mandelbrot / Python Visualisation (GitHub repo) -->
-        <article class="project-card reveal reveal-delay-4" aria-label="Mandelbrot Set Visualisation" data-href="https://github.com/shanmukhareddie/python_project" onclick="if(!event.target.closest('a,button')){window.open(this.dataset.href,'_blank','noopener,noreferrer')}">
+        <!-- ⑤ Mandelbrot Set -->
+        <article class="project-card reveal reveal-delay-4" aria-label="Mandelbrot Set Visualisation"
+          data-href="https://github.com/shanmukhareddie/python_project"
+          onclick="if(!event.target.closest('a,button')){window.open(this.dataset.href,'_blank','noopener,noreferrer')}">
           <div class="project-top">
             <div class="project-icon" style="background:oklch(from var(--color-error, #a12c7b) l c h / 0.12)" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
@@ -708,22 +611,6 @@ footer{padding:var(--space-6);text-align:center;
                 <path d="M12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z" opacity=".4"/>
                 <circle cx="12" cy="12" r="2"/>
               </svg>
-            </div>
-            <div class="project-links">
-              <a class="project-link"
-                href="https://github.com/shanmukhareddie/python_project"
-                target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57
-                  0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695
-                  -.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99
-                  .105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225
-                  -.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405
-                  c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605
-                  -2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69
-                  .825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-              </a>
             </div>
           </div>
           <div class="project-year">2025</div>
@@ -739,7 +626,7 @@ footer{padding:var(--space-6);text-align:center;
           </div>
         </article>
 
-      </div><!-- /projects-grid -->
+      </div>
     </div>
   </section>
 
@@ -846,78 +733,83 @@ footer{padding:var(--space-6);text-align:center;
 
   <div class="divider"></div>
 
-  <!-- ── Experience ── -->
+  <!-- ── Experience + Education side by side ── -->
   <section id="experience" aria-labelledby="exp-heading">
     <div class="container">
-      <p class="section-label reveal">Professional Experience</p>
-      <h2 class="section-title reveal" id="exp-heading">Work History</h2>
-      <div class="exp-timeline">
+      <div class="exp-edu-grid">
 
-        <div class="exp-item reveal">
-          <div class="exp-line" aria-hidden="true">
-            <div class="exp-dot"></div>
-            <div class="exp-connector"></div>
-          </div>
-          <div class="exp-body">
-            <div class="exp-header">
-              <h3 class="exp-role">Data Analyst Intern</h3>
-              <span class="exp-period">2025</span>
-            </div>
-            <p class="exp-company">Elevate Labs · Bangalore, India</p>
-            <ul class="exp-bullets" role="list">
-              <li>Analysed large-scale advertising datasets (1M+ rows) to extract actionable
-                insights, directly informing campaign optimisation and improving conversion rates</li>
-              <li>Designed and deployed interactive Power BI &amp; Tableau dashboards tracking 10+ KPIs,
-                reducing manual reporting time by 60% and enabling real-time monitoring for
-                cross-functional stakeholders</li>
-              <li>Engineered automated ETL pipelines using Python and SQL to consolidate multi-source
-                data, improving data reliability across weekly reporting cycles</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Education inline -->
-      <div style="margin-top:var(--space-16)">
-        <p class="section-label reveal">Education</p>
-        <h2 class="section-title reveal" id="edu-heading">Academic Background</h2>
-        <div class="edu-grid">
-          <div class="edu-card reveal reveal-delay-1">
-            <p class="edu-period">2025 – 2027</p>
-            <h3 class="edu-degree">Master in Data Science &amp; Business Analytics</h3>
-            <p class="edu-school">ESSEC Business School &amp; CentraleSupélec</p>
-            <p class="edu-location">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              Paris, France (Grande École)
-            </p>
-            <div class="edu-courses">
-              <strong>Coursework:</strong> Machine Learning · Statistical Modelling ·
-              Optimisation · Probability · Econometrics
-            </div>
-          </div>
-          <div class="edu-card reveal reveal-delay-2">
-            <p class="edu-period">2021 – 2025</p>
-            <h3 class="edu-degree">B.Tech in Computer Science &amp; Engineering</h3>
-            <p class="edu-school">Kalasalingam Academy of Research and Education</p>
-            <p class="edu-location">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              Tamil Nadu, India (Data Science specialisation)
-            </p>
-            <div class="edu-courses">
-              <strong>Certifications:</strong> Career Essentials in Data Analysis — Microsoft (2025) ·
-              Data Analyst Certification — Techwave Solutions (2025)
+        <!-- Left: Experience -->
+        <div>
+          <p class="section-label reveal">Professional Experience</p>
+          <h2 class="section-title reveal" id="exp-heading">Work History</h2>
+          <div class="exp-timeline" style="margin-top:var(--space-8)">
+            <div class="exp-item reveal">
+              <div class="exp-line" aria-hidden="true">
+                <div class="exp-dot"></div>
+                <div class="exp-connector"></div>
+              </div>
+              <div class="exp-body">
+                <div class="exp-header">
+                  <h3 class="exp-role">Data Analyst Intern</h3>
+                  <span class="exp-period">2025</span>
+                </div>
+                <p class="exp-company">Elevate Labs · Bangalore, India</p>
+                <ul class="exp-bullets" role="list">
+                  <li>Analysed large-scale advertising datasets (1M+ rows) to extract actionable
+                    insights, directly informing campaign optimisation and improving conversion rates</li>
+                  <li>Designed and deployed interactive Power BI &amp; Tableau dashboards tracking 10+ KPIs,
+                    reducing manual reporting time by 60% and enabling real-time monitoring for
+                    cross-functional stakeholders</li>
+                  <li>Engineered automated ETL pipelines using Python and SQL to consolidate multi-source
+                    data, improving data reliability across weekly reporting cycles</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Right: Education -->
+        <div id="education">
+          <p class="section-label reveal">Education</p>
+          <h2 class="section-title reveal" id="edu-heading">Academic Background</h2>
+          <div class="edu-stack" style="margin-top:var(--space-8)">
+            <div class="edu-card reveal reveal-delay-1">
+              <p class="edu-period">2025 – 2027</p>
+              <h3 class="edu-degree">Master in Data Science &amp; Business Analytics</h3>
+              <p class="edu-school">ESSEC Business School &amp; CentraleSupélec</p>
+              <p class="edu-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Paris, France (Grande École)
+              </p>
+              <div class="edu-courses">
+                <strong>Coursework:</strong> Machine Learning · Statistical Modelling ·
+                Optimisation · Probability · Econometrics
+              </div>
+            </div>
+            <div class="edu-card reveal reveal-delay-2">
+              <p class="edu-period">2021 – 2025</p>
+              <h3 class="edu-degree">B.Tech in Computer Science &amp; Engineering</h3>
+              <p class="edu-school">Kalasalingam Academy of Research and Education</p>
+              <p class="edu-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Tamil Nadu, India (Data Science specialisation)
+              </p>
+              <div class="edu-courses">
+                <strong>Certifications:</strong> Career Essentials in Data Analysis — Microsoft (2025) ·
+                Data Analyst Certification — Techwave Solutions (2025)
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -929,9 +821,7 @@ footer{padding:var(--space-6);text-align:center;
     <div class="container">
       <div class="contact-inner">
         <p class="section-label reveal">Get in Touch</p>
-        <h2 class="section-title reveal" id="contact-heading">
-          Let's Build Something
-        </h2>
+        <h2 class="section-title reveal" id="contact-heading">Let's Build Something</h2>
         <p class="contact-desc reveal">
           Actively seeking data analyst &amp; data science internships across Europe.
           Open to collaborations, research projects, and interesting problems.
@@ -975,7 +865,6 @@ footer{padding:var(--space-6);text-align:center;
 
 </main>
 
-<!-- ── Footer ── -->
 <footer>
   <p>© 2026 Shanmukha Reddy Gangula · Built with care · Paris, France</p>
 </footer>
